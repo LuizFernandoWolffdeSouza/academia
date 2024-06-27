@@ -8,8 +8,12 @@ const rl = readline.createInterface({
 
 menu()
 let alunos = []
-let treino = []
 
+
+/*function remover(array) {
+    array.splice(0, array.lenght)
+
+}*/
 
 function menu() {
     console.log(`
@@ -19,11 +23,10 @@ function menu() {
     3.Listar alunos cadastrados
     4.Excluir aluno
     5.adicionar planos de treino
-    6.Editar plano de treino
-    7.Registrar frequência
-    8.Sair`)
+    6.Registrar frequência
+    7.Sair`)
 
-    rl.question('Escolha uma opção', (resposta) => {
+    rl.question('Escolha uma opção :' , (resposta) => {
         switch (resposta) {
             case '1':
                 fazermatricula()
@@ -41,16 +44,13 @@ function menu() {
                 planotreino()
                 break;
             case '6':
-                editartreino()
+                registrarfrequencia()
                 break;
             case '7':
-                registrarfrequencia()
-
-                break;
-            case '8':
                 rl.close()
-
+                menu
                 break;
+
             default:
                 menu()
 
@@ -148,6 +148,8 @@ function excluiraluno() {
 }
 // 5 - adicionar plano de treino
 function planotreino() {
+    let treino = []
+    
     let abc = {
         Segunda: "Peito, ombro e tríceps",
         Terça: "Costas e bíceps",
@@ -184,27 +186,29 @@ function planotreino() {
     rl.question("Quantos dias da semana você consegue ir? (3 dias é o minimo): ", (dias) => {
         switch (dias) {
             case '3':
+    
                 treino.push(abc2)
-                console.log(`Esse treino é o ideal treino  ${treino}`)
+                console.log(treino)
                 menu()
+                break
             case '4':
                 treino.push(abcd)
-                console.log(`Esse treino é o ideal treino  ${treino}`)
+                console.log(treino)
                 menu()
 
                 break;
             case '5':
                 treino.push(abcde)
-                console.log(`Esse treino é o ideal treino  ${treino}`)
+                console.log(treino)
                 menu()
-
+            break
             case '6':
                 treino.push(abc)
-                console.log(`Esse treino é o ideal treino  ${treino}`)
+                console.log(treino)
                 menu()
+                break
 
             default:
-                console.log("Nenhum treino foi escolhido")
                 menu()
                 break;
         }
@@ -213,37 +217,48 @@ function planotreino() {
     })
 }
 
-//6 - editar plano de treino
-function editar() {
-    if (treino.length == 0) {
-     console.log("Nenhum treino cadastrado")
-    } else {
-        rl.question('Digite o seu treino que deseja editar: ', (numero) => {
-            if (numero > 0 && numero <= treino.length) {
-                rl.question('Digite a nova propriedade 1: ', (propriedade1) => {
-                    rl.question('Digite a nova propriedade 2: ', (propriedade2) => {
-                        rl.question('Digite a nova propriedade 3: ', (propriedade3) => {
-                            vetor[numero - 1] = {
-                                propriedade1,
-                                propriedade2,
-                                propriedade3
-                            }
-                            console.log('editado com sucesso!')
-                            exibirMenu()
-                        })
-                    })
-                })
-            } else {
-                console.log('Número inválido, tente novamente.')
-                exibirMenu()
-            }
-        })
 
-    }
-}
 
-//7-editar treino
-function Editartreino(params) {
+
+//6-verificar frequência
+function registrarfrequencia(params) {
+    let calculo
+    rl.question(" qual a sua frequencia na semana:", (resposta) => {
+        switch (resposta) {
+            case "1":
+                calculo = 100 / 7 * resposta
+                console.log(`${calculo.toFixed()}%`)
+                break;
+            case "2":
+                calculo = 100 / 7 * resposta
+                console.log(`${calculo.toFixed()}%`)
+                break;
+            case "3":
+                calculo = 100 / 7 * resposta
+                console.log(`${calculo.toFixed()}%`)
+                break;
+            case "4":
+                calculo = 100 / 7 * resposta
+                console.log(`${calculo.toFixed()}%`)
+                break;
+            case "5":
+                calculo = 100 / 7 * resposta
+                console.log(`${calculo.toFixed()}%`)
+                break;
+            case "6":
+                calculo = 100 / 7 * resposta
+                console.log(`${calculo.toFixed()}%`)
+                break;
+            case "7":
+                calculo = 100 / 7 * resposta
+                console.log(`${calculo.toFixed()}%`)
+                break;
+
+            default:
+                menu()
+                break;
+        }
+    })
 
 }
 
