@@ -1,4 +1,11 @@
-const { removeListener } = require("process")
+const {fazermatricula } = require('./fazermatricula')
+
+
+const {listaraluno } = require('./listaraluno')
+
+const {excluir} = require('./excluiraluno')
+
+
 const readline = require("readline")
 const rl = readline.createInterface({
     input: process.stdin,
@@ -8,6 +15,7 @@ const rl = readline.createInterface({
 
 menu()
 let alunos = []
+
 
 
 /*function remover(array) {
@@ -29,7 +37,7 @@ function menu() {
     rl.question('Escolha uma opção :' , (resposta) => {
         switch (resposta) {
             case '1':
-                fazermatricula()
+                fazermatricula(rl , alunos, callback)
                 break
             case '2':
                 alterarinfo()
@@ -62,52 +70,13 @@ function menu() {
 }
 
 //1-Mátricula
-function fazermatricula() {
 
-    rl.question('Digite seu nome: ', (nome) => {
-        rl.question('Digite seu cpf: ', (matricula) => {
-            rl.question('Digite sua idade: ', (idade) => {
-                alunos.push({ nome: nome.toString(), matricula: matricula, idade: idade })
-                console.log(`Sua mátricula foi realizada com sucesso`)
-                console.log(alunos)
-                menu()
-
-            })
-        })
-    })
-}
 //2- Editar cadastro
-function alterarinfo() {
-    if (vetor.length == 0) {
-        console.log("Nenhum cadastro foi concedido")
-    } else {
-        rl.question('Digite o número do elemento que deseja editar: ', (elemento) => {
-            if (elemento > 0 && elemento <= alunos.length) {
-                rl.question('Digite a nova propriedade 1: ', (nome) => {
-                    rl.question('Digite a nova propriedade 2: ', (cpf) => {
-                        rl.question('Digite a nova propriedade 3: ', (idade) => {
-                            alunos[numero - 1] = {
-                                nome,
-                                cpf,
-                                idade
-                            }
-                            console.log('editado com sucesso!')
-                            exibirMenu()
-                        })
-                    })
-                })
-            } else {
-                console.log('Número inválido, tente novamente.')
-                exibirMenu()
-            }
-        })
 
-    }
 
-}
 //3-Listar alunos
-function listaraluno() {
-    if (alunos.lenght == 0) {
+/*function listaraluno() {
+    if (alunos.length == 0) {
         console.log("Nenhum cadastro realizado")
     }
     else {
@@ -116,12 +85,12 @@ function listaraluno() {
             console.log(alunos)
         }
     }
-    menu()
+    menu()*/
 
-}
+
 //4-Excluir alunos
 function excluiraluno() {
-    if (alunos.lenght == 0) {
+    if (alunos.length == 0) {
         console.log("Nenhum cadastrado sucedido")
         menu()
     }
@@ -210,6 +179,7 @@ function planotreino() {
 
             default:
                 menu()
+        
                 break;
         }
 
@@ -217,6 +187,7 @@ function planotreino() {
     })
 }
 
+//5-editar treino
 
 
 
@@ -226,34 +197,15 @@ function registrarfrequencia(params) {
     rl.question(" qual a sua frequencia na semana:", (resposta) => {
         switch (resposta) {
             case "1":
-                calculo = 100 / 7 * resposta
-                console.log(`${calculo.toFixed()}%`)
-                break;
-            case "2":
-                calculo = 100 / 7 * resposta
-                console.log(`${calculo.toFixed()}%`)
-                break;
-            case "3":
-                calculo = 100 / 7 * resposta
-                console.log(`${calculo.toFixed()}%`)
-                break;
+            case '2':
+            case '3':
             case "4":
-                calculo = 100 / 7 * resposta
-                console.log(`${calculo.toFixed()}%`)
-                break;
             case "5":
-                calculo = 100 / 7 * resposta
-                console.log(`${calculo.toFixed()}%`)
-                break;
             case "6":
-                calculo = 100 / 7 * resposta
-                console.log(`${calculo.toFixed()}%`)
-                break;
             case "7":
                 calculo = 100 / 7 * resposta
                 console.log(`${calculo.toFixed()}%`)
                 break;
-
             default:
                 menu()
                 break;
