@@ -1,4 +1,4 @@
-function alterarinfo() {
+function alterarinfo(rl,alunos, callback) {
     if (vetor.length == 0) {
         console.log("Nenhum cadastro foi concedido")
     } else {
@@ -13,17 +13,17 @@ function alterarinfo() {
                                 idade
                             }
                             console.log('editado com sucesso!')
-                            exibirMenu()
+                            callback()
                         })
                     })
                 })
             } else {
                 console.log('Número inválido, tente novamente.')
-                exibirMenu()
+                callback()
             }
         })
 
     }
 
 }
-module.exports = 
+module.exports = {alterarinfo}

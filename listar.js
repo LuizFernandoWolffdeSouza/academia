@@ -1,4 +1,4 @@
-function listaraluno(alunos) {
+function listaraluno(rl,alunos, callback) {
     if (alunos.length == 0) {
         console.log("Nenhum cadastro realizado")
     }
@@ -8,7 +8,7 @@ function listaraluno(alunos) {
             console.log(alunos)
         }
     }
-    menu()
+    callback()
 
 }
 module.exports = {listaraluno}

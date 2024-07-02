@@ -1,7 +1,6 @@
 
 
-function fazermatricula(rl, alunos, callback) {
-    listaraluno(alunos)
+function fazermatricula(rl,alunos,callback) {
     rl.question('Digite seu nome: ', (nome) => {
         rl.question('Digite seu cpf: ', (matricula) => {
             rl.question('Digite sua idade: ', (idade) => {
