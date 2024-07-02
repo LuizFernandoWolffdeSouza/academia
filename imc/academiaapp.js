@@ -2,6 +2,7 @@ const {fazermatricula } = require('./matricula')
 const {listaraluno } = require('./listar')
 const {excluiraluno} = require('./excluir')
 const {planotreino} = require('./treino')
+const {registrarfrequencia} = require('./frequencia')
 
 
 const readline = require("readline")
@@ -50,7 +51,7 @@ function menu() {
                 planotreino(rl, menu)
                 break;
             case '6':
-                registrarfrequencia()
+                registrarfrequencia(rl,calculo, menu)
                 break;
             case '7':
                 rl.close()
@@ -82,26 +83,15 @@ function menu() {
 
 
 //6-verificar frequência
-function registrarfrequencia(params) {
-    let calculo
-    rl.question(" qual a sua frequencia na semana:", (resposta) => {
-        switch (resposta) {
-            case "1":
-            case '2':
-            case '3':
-            case "4":
-            case "5":
-            case "6":
-            case "7":
-                calculo = 100 / 7 * resposta
-                console.log(`${calculo.toFixed()}%`)
-                break;
-            default:
-                menu()
-                break;
-        }
-    })
 
+function calculomacros () {
+    rl.question("qual seu peso", (peso) =>{
+        rl.question("Qunato de proteína você deseja ingerir 1.6x kg, 2kg", (proteina) =>{
+                
+        })
+        
+    })
+    
 }
 
 
